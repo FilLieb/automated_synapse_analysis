@@ -7,4 +7,4 @@ image_folder/Thumbs.db
 image_folder/**/Thumbs.db
 
 # Ignore any Thumbs.db anywhere (optional)
-# Thumbs.db
+Thumbs.db
