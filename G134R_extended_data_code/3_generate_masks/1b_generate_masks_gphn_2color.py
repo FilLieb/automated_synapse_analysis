@@ -14,13 +14,10 @@ from skimage.restoration import rolling_ball
 from scipy.ndimage import median_filter
 import napari_simpleitk_image_processing as nsitk
 
-
-
 # Set paths
-image_folder = r"Z:/personal_data/Filip_Liebsch/SP8_Biocenter_small/2025-04-23_floxed/G134R_HET_project/"
+image_folder = "G134R_extended_data_code/example_data/single_gphn/"
 image_name = "MaxZ_deconvolution.tif"
 confocal_name = "AvZ_confocal.tif"
-
 
 def execute(root):
     print(f"Found image in: {root}")
@@ -51,7 +48,8 @@ def make_masks(name, number, path, image):
 
     out_file = os.path.join(path, image_name.replace('MaxZ_deconvolution.tif', name + '_labels.tif'))
     channel = image [:,:,number]
-    cl_filename = name + "_object_model.cl"
+    name_model = name.split("-")[1]
+    cl_filename = "G134R_extended_data_code/models/" + name_model + "_object_model.cl"
     segmenter = apoc.ObjectSegmenter(opencl_filename=cl_filename)
     labels = segmenter.predict(channel)
     imsave(out_file, labels)
