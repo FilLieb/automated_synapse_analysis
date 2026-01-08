@@ -1,0 +1,10 @@
+# Ignore Visual Studio Code workspace and Python virtual env
+.vscode/
+.venv/
+
+# Ignore Windows Thumbs.db files in image_folder and subfolders
+image_folder/Thumbs.db
+image_folder/**/Thumbs.db
+
+# Ignore any Thumbs.db anywhere (optional)
+# Thumbs.db
